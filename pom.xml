@@ -34,8 +34,9 @@
 
     <!-- MODULES -->
     <modules>
-        <module>jackson-extensions.maps</module>
         <module>jackson-extensions.jena</module>
+        <module>jackson-extensions.maps</module>
+        <module>jackson-extensions.test-report</module>
     </modules>
 
 
@@ -83,6 +84,19 @@
     </dependencies>
     <dependencyManagement>
         <dependencies>
+            <!-- ~~~~~~~~~~~~~~~~~~~ Modules of this project ~~~~~~~~~~~~~~~~~~~~~~ -->
+            <dependency>
+                <groupId>org.dice-research</groupId>
+                <artifactId>jackson-extensions.jena</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.dice-research</groupId>
+                <artifactId>jackson-extensions.maps</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+            <!-- ~~~~~~~~~~~~~~~~~~~ END Modules of this project ~~~~~~~~~~~~~~~~~~~~~~ -->
+
             <!-- Jackson databind -->
             <dependency>
                 <groupId>com.fasterxml.jackson.core</groupId>
