@@ -14,7 +14,7 @@ public class ComplexHashMapDeserializer extends AbstractComplexMapDeserializer<H
   private static final long serialVersionUID = 1L;
 
   public ComplexHashMapDeserializer() {
-    this(null);
+    this(HashMap.class);
   }
 
   public ComplexHashMapDeserializer(Class<?> t) {

@@ -48,8 +48,6 @@ public abstract class AbstractComplexMapDeserializer<T extends Map<Object, Objec
 
     private static final long serialVersionUID = 1L;
 
-    private static final LocalClassLoader LOCAL_CLASS_LOADER = new LocalClassLoader();
-
     /**
      * The factory that is used to generate {@link Map} instances when needed.
      */
@@ -245,6 +243,14 @@ public abstract class AbstractComplexMapDeserializer<T extends Map<Object, Objec
                 }
                 state = 1;
                 break;
+            case START_ARRAY:
+                if (state == 5) {
+                    value = parser.readValueAs(localValueClass);
+                } else {
+                    throw new IOException("Saw an unexpected start of a JSON array (state=" + state + ").");
+                }
+                state = 1;
+                break;
             default:
                 // NOT_AVAILABLE, VALUE_NUMBER_FLOAT, VALUE_NUMBER_INT, VALUE_FALSE, VALUE_TRUE,
                 // VALUE_EMBEDDED_OBJECT, VALUE_NULL, START_ARRAY, END_ARRAY
@@ -267,17 +273,6 @@ public abstract class AbstractComplexMapDeserializer<T extends Map<Object, Objec
         } catch (Exception e) {
             e.printStackTrace();
             throw new IOException("Couldn't find a class with the given class name (\"" + className + "\")", e);
-        }
-    }
-
-    protected static class LocalClassLoader extends ClassLoader {
-
-        public LocalClassLoader() {
-            super();
-        }
-
-        public Class<?> searchClass(String className) throws ClassNotFoundException {
-            return loadClass(className, true);
         }
     }
 
