@@ -2,7 +2,7 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>org.dice-research</groupId>
     <artifactId>jackson-extensions</artifactId>
-    <version>0.0.1</version>
+    <version>0.0.2</version>
     <packaging>pom</packaging>
     <inceptionYear>2022</inceptionYear>
 
@@ -26,7 +26,7 @@
     <!-- PROPERTIES -->
     <properties>
         <java.version>1.8</java.version>
-        <jackson.version>2.13.3</jackson.version>
+        <jackson.version>2.13.4.1</jackson.version>
         <slf4j.version>1.7.36</slf4j.version>
         <junit.version>4.13.2</junit.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>

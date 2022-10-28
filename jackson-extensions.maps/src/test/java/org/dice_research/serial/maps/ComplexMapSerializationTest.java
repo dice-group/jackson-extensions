@@ -43,8 +43,8 @@ public class ComplexMapSerializationTest {
 
         Map<ComplexObject, ComplexObject> readMap = null;
         try {
-        readMap = mapper.readValue(json, Map.class);
-        } catch(Exception e) {
+            readMap = mapper.readValue(json, Map.class);
+        } catch (Exception e) {
             System.err.print("Exception while reading map from JSON. JSON String: ");
             System.err.println(json);
             throw e;
@@ -67,11 +67,11 @@ public class ComplexMapSerializationTest {
         ComplexObject key1 = new ComplexObject("key1", "1key");
         ComplexObject key2 = new ComplexObject("key2", "2key");
         ComplexObject key3 = new ComplexObject("key3", "3key");
-        ComplexObject keyNull = new ComplexObject(null, "1key");
+//        ComplexObject keyNull = new ComplexObject(null, "1key");
         ComplexObject value1 = new ComplexObject("value1", "1value");
         ComplexObject value2 = new ComplexObject("value2", "2value");
         ComplexObject value3 = new ComplexObject("value3", "3value");
-        ComplexObject valueNull = new ComplexObject("value3", null);
+//        ComplexObject valueNull = new ComplexObject("value3", null);
         ExtendedObject extObj1 = new ExtendedObject("ext1", "object1", 1);
         ExtendedObject extObj2 = new ExtendedObject("ext2", "object2", 2);
 
@@ -116,11 +116,12 @@ public class ComplexMapSerializationTest {
         testConfigs.add(new Object[] { map });
 
         // 4 k->v pairs, null values
-        map = new HashMap<>();
-        map.put(keyNull, value1);
-        map.put(key2, valueNull);
-        map.put(key3, null);
-        map.put(null, value3);
+//        map = new HashMap<>();
+//        map.put(keyNull, value1);
+//        map.put(key2, valueNull);
+//        map.put(key3, null);
+//        map.put(null, value3);
+//        testConfigs.add(new Object[] { map });
 
         return testConfigs;
     }
